@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.adou.springboot.mybatis.mapper.PersonMapper">
+
+    <insert id="insert" parameterType="com.adou.springboot.mybatis.model.Person">
+        INSERT INTO person(id,pid,name,age) VALUES(#{id},#{pid},#{name},#{age})
+    </insert>
+
+    <update id="update" parameterType="com.adou.springboot.mybatis.model.Person">
+        UPDATE person SET name=#{name},age=#{age} WHERE pid = #{pid}
+    </update>
+
+    <delete id="delete" parameterType="java.lang.Long">
+        DELETE FROM person WHERE pid = #{pid}
+    </delete>
+
+    <select id="selectPersonById" resultType="com.adou.springboot.mybatis.model.Person">
+        select * from person where pid = #{pid}
+    </select>
+
+    <select id="selectAll" resultType="com.adou.springboot.mybatis.model.Person">
+        SELECT id, pid,name,age FROM person
+    </select>
+
+
+</mapper>

@@ -1,0 +1,11 @@
+spring:
+  messages:
+    encoding: utf-8
+    cache-seconds: 100000
+  profiles:
+    active: beta
+    
+    
+##日志
+logging:
+  config: classpath:log4j2.xml 
